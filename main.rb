@@ -2,6 +2,7 @@
 # Class player (contains 2 players) 
 # Class display current position
 require_relative 'lib/display'
+require_relative 'lib/player'
 
 class PlayGame
   @turn = 0
