@@ -7,13 +7,13 @@ class Player
   end
   
   def chaal
-    puts "Player with '#{self.mark}' mark, enter your move!\n"
-    xo = gets.chomp
-    if xo < 1 || xo > 9
+    print "Player with '#{self.mark}' mark, enter your move!\n"
+    xo = gets.chomp.to_i
+    if xo < 1 || xo > 9 || !xo.is_a?(Integer)
       puts "Please enter valid input"
     else
       @moves.push(xo)
-      return xo.to_i
+      return (xo - 1)
     end
   end
 end

@@ -5,12 +5,11 @@ require_relative 'lib/display'
 require_relative 'lib/player'
 require_relative 'lib/game'
 
-class PlayGame < Game
+class PlayGame
   def initialize
-    Game.new()
-  end
-
-  def display
-    Display.new(@game)
+    new_game = Game.new()
+    new_game.play
   end
 end
+
+PlayGame.new()
