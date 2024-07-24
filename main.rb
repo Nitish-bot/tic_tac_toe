@@ -5,20 +5,9 @@ require_relative 'lib/display'
 require_relative 'lib/player'
 require_relative 'lib/game'
 
-class PlayGame
+class PlayGame < Game
   def initialize
     Game.new()
-  end
-
-  def turn(x, y)
-    @turn += 1
-
-    case (x == 0)
-    when true
-      @game[y] = 'X'
-    when false
-      @game[y] = 'O'
-    end
   end
 
   def display
