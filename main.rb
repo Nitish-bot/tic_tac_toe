@@ -3,13 +3,11 @@
 # Class display current position
 require_relative 'lib/display'
 require_relative 'lib/player'
+require_relative 'lib/game'
 
 class PlayGame
-  @turn = 0
-
   def initialize
-    @game = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    self.display()
+    Game.new()
   end
 
   def turn(x, y)
