@@ -5,7 +5,7 @@ class Game
     [0, 3, 6], [1, 4, 7], [2, 5, 8], [2, 4, 6]]
 
   def initialize
-    @turn = 0
+    @turn = 1
     @game = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     @player_one = Player.new('X')
     @player_two = Player.new('O')
@@ -13,21 +13,20 @@ class Game
   end
 
   def play
-    for i in 0...9
-      self.turn += 1
+    while !win_check(turn_decider)
       player = turn_decider
       record_turn(player)
-      if i >= 5 && win_check(player)
+      self.display
+      if win_check(player)
         puts "Player '#{player.mark}' has won"
         break
-      else
-        self.display
       end
+      self.turn = self.turn == 1 ? 2 : 1 
     end
   end
 
   def turn_decider
-    if self.turn % 2 != 0
+    if self.turn == 1
       return self.player_one
     else  
       return self.player_two
@@ -35,7 +34,7 @@ class Game
   end
 
   def record_turn(player)
-    self.game[player.chaal] = player.mark
+    self.game[player.chaal(self.game)] = player.mark
   end
 
   def win_check(player)
