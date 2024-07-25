@@ -17,8 +17,9 @@ class Game
       self.turn += 1
       player = turn_decider
       record_turn(player)
-      if i > 5 && wincheck(player)
+      if i >= 5 && win_check(player)
         puts "Player '#{player.mark}' has won"
+        break
       else
         self.display
       end
@@ -39,7 +40,9 @@ class Game
 
   def win_check(player)
     WIN_COMBOS.any? do |combo|
-      combo.all? { |index| player.moves.include?(index)}
+      combo.all? do |index| 
+        player.moves.include?(index)
+      end
     end
   end
 

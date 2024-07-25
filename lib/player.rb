@@ -12,7 +12,7 @@ class Player
     if xo < 1 || xo > 9 || !xo.is_a?(Integer)
       puts "Please enter valid input"
     else
-      @moves.push(xo)
+      @moves.push(xo - 1)
       return (xo - 1)
     end
   end
