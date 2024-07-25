@@ -12,19 +12,24 @@ class Game
     self.display
   end
 
-  def play()
+  def play
     for i in 0...9
       self.turn += 1
-      if i < 6
-        self.turn % 2 != 0 ? record_turn(self.player_one) : record_turn(self.player_two)
+      player = turn_decider
+      record_turn(player)
+      if i > 5 && wincheck(player)
+        puts "Player '#{player.mark}' has won"
       else
-        if self.turn % 2 == 0
-          record_turn(self.player_two)
-        else
-          record_turn(self.player_one)
-        end
+        self.display
       end
-      self.display
+    end
+  end
+
+  def turn_decider
+    if self.turn % 2 != 0
+      return self.player_one
+    else  
+      return self.player_two
     end
   end
 
