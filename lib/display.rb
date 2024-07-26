@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Only purpose in life is to display
 class Display
   def initialize(array)
     puts "#{array[0]} | #{array[1]} | #{array[2]}"

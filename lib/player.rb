@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# This manages all thigns player does
 class Player
   attr_reader :mark, :moves
 
@@ -11,7 +14,7 @@ class Player
     retries = 0
     while retries < 5
       xo = gets.chomp.to_i
-      if xo < 1 || xo > 9 || !xo.is_a?(Integer) || !valid_moves(game).include?(xo)
+      if !xo.is_a?(Integer) || xo < 1 || xo > 9 || !valid_moves(game).include?(xo)
         retries += 1
         puts 'Please enter valid input'
       else

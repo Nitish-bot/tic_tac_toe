@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
+# This is the main class game
 class Game
   attr_reader :player_one, :player_two
   attr_accessor :turn, :game
 
   WIN_COMBOS = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 4, 8],
-                [0, 3, 6], [1, 4, 7], [2, 5, 8], [2, 4, 6]]
+                [0, 3, 6], [1, 4, 7], [2, 5, 8], [2, 4, 6]].freeze
 
   def initialize
     @turn = 1
